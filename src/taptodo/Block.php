@@ -23,7 +23,7 @@ class Block{
 
         $this->addCommands($commands);
     }
-    public function addCommands($cmds): void{
+    public function addCommands($cmds){
         if(!is_array($cmds)){
             $cmds = [$cmds];
         }
@@ -32,10 +32,10 @@ class Block{
         }
         $this->plugin->saveBlock($this);
     }
-    public function addCommand($cmd): void{
+    public function addCommand($cmd){
         $this->addCommands([$cmd]);
     }
-    public function deleteCommand($cmd): bool{
+    public function deleteCommand($cmd){
         $ret = false;
         for($i = count($this->commands); $i >= 0; $i--){
             if($this->commands[$i]->getOriginalCommand() === $cmd || $this->commands[$i]->getCompiledCommand() === $cmd){
@@ -48,12 +48,12 @@ class Block{
         }
         return $ret;
     }
-    public function executeCommands(Player $player): void{
+    public function executeCommands(Player $player){
         foreach($this->commands as $command){
             $command->execute($player);
         }
     }
-    public function setName($name): void{
+    public function setName($name){
         $this->name = $name;
     }
     public function getCommands(): array{
