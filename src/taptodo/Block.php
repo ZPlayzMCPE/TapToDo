@@ -56,12 +56,12 @@ class Block{
     public function setName($name){
         $this->name = $name;
     }
-    public function getCommands(): array{
+    public function getCommands(){
         $out = [];
         foreach($this->commands as $command) $out[] = $command->getOriginalCommand();
         return $out;
     }
-    public function getName(): string{
+    public function getName(){
         return $this->name;
     }
 
@@ -69,13 +69,13 @@ class Block{
      * @return Position
      * @deprecated
      */
-    public function getPos(): Position{
+    public function getPos(){
         return $this->position;
     }
-    public function getPosition(): Position{
+    public function getPosition(){
         return $this->position;
     }
-    public function toArray(): array{
+    public function toArray(){
         $arr = [
             'x' => $this->getPosition()->getX(),
             'y' => $this->getPosition()->getY(),
